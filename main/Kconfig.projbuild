@@ -1,0 +1,128 @@
+menu "Log Server Configuration"
+
+    config LOG_SERVER_PORT
+        int "Port"
+        range 0 65535
+        default 3333
+        help
+            The remote port to which the client example will connect to.
+
+    config LOG_SERVER_MAX_CONNECTIONS
+        int "Max Connections"
+        range 0 50
+        default 5
+        help
+            How many connections log server can handle
+
+    config LOG_SERVER_KEEPALIVE_IDLE
+        int "TCP Keep-Alive Idle Time(s)"
+        default 5
+        help
+            Keep-alive idle time. In idle time without receiving any data from peer, will send keep-alive probe packet
+
+    config LOG_SERVER_KEEPALIVE_INTERVAL
+        int "TCP Keep-Alive Interval Time(s)"
+        default 5
+        help
+            Keep-alive probe packet interval time.
+
+    config LOG_SERVER_KEEPALIVE_COUNT
+        int "TCP Keep-Alive Packet Retry Send Counts"
+        default 3
+        help
+            Keep-alive probe packet retry count.
+
+endmenu
+
+menu "Lutron Configuration"
+
+    config LUTRON_IP_ADDRESS
+        string "IPV4 Address"
+        default "192.168.0.165"
+        help
+            Lutron client will connect to this IPV4 address.
+
+    config LUTRON_PORT
+        int "Port"
+        range 0 65535
+        default 3333
+        help
+            The remote port to which the client example will connect to.
+
+    config LUTRON_USERNAME
+        string "Lutron Username"
+        default ""
+        help
+            Lutron username to be used for loigin.
+    
+    config LUTRON_PASSWORD
+        string "Lutron Password"
+        default ""
+        help
+            Lutron password to be used for loigin.
+
+    config LUTRON_RECONNECT_DELAY
+        int "Lutron Reconnect Delay Time(s)"
+        range 0 50000
+        default 905
+        help
+            The delay client will wait to reconnect to Lutron on disconnection.
+
+    config LUTRON_KEEPALIVE_IDLE
+        int "TCP Keep-Alive Idle Time(s)"
+        default 5
+        help
+            Keep-alive idle time. In idle time without receiving any data from peer, will send keep-alive probe packet
+
+    config LUTRON_KEEPALIVE_INTERVAL
+        int "TCP Keep-Alive Interval Time(s)"
+        default 5
+        help
+            Keep-alive probe packet interval time.
+
+    config LUTRON_KEEPALIVE_COUNT
+        int "TCP Keep-Alive Packet Retry Send Counts"
+        default 3
+        help
+            Keep-alive probe packet retry count.
+
+endmenu
+
+menu "Fountain Configuration"
+
+    config FOUNTAIN_GPIO_PIN
+        int "Pump GPIO Pin"
+        range 0 50
+        default 1
+        help
+            GPIO pin for fountain pump relay.
+
+    config FOUNTAIN_LIGHTS_GPIO_PIN
+        int "Lights GPIO Pin"
+        range 0 50
+        default 1
+        help
+            GPIO pin for fountain lights relay.
+
+    config  FOUNTAIN_LUTRON_INTEGRATION_ID
+        int "Pump Lutron Integration ID"
+        range 0 5000
+        default 1
+        help
+            Lutron integration ID for fountain pump switch.
+
+    config  FOUNTAIN_LIGHTS_LUTRON_INTEGRATION_ID
+        int "Lights Lutron Integration ID"
+        range 0 5000
+        default 1
+        help
+            Lutron integration ID for fountain lights switch.
+
+    config  FOUNTAIN_COOLOFF_PERIOD
+        int "Cool Off Period Time(s)"
+        range 0 50000
+        default 0
+        help
+            Cool off period in seconds for switching on/off fountain pump.
+
+endmenu
